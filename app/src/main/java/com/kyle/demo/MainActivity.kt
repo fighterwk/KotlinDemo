@@ -29,19 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         with(mUI.mToolbar){
             setSupportActionBar(this)
+
+            setNavigationIcon(R.mipmap.icon_back)
+            setNavigationOnClickListener {
+                onBackPressed()
+            }
         }
 
-        supportActionBar?.apply {
-            setDisplayHomeAsUpEnabled(true)
-            title = "我是一只小青蛙"
-        }
-
-//        doAsync {
-//            Thread.sleep(1000)
-//            runOnUiThread {
-//                mUI.showSnack()
-//            }
-//        }
     }
 }
 
