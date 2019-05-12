@@ -1,5 +1,7 @@
 package com.kyle.demo
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Contacts
@@ -27,14 +29,14 @@ class MainActivity : AppCompatActivity() {
         mUI.setContentView(this)
 //        mUI.setTitle("我的标题")
 
-        with(mUI.mToolbar){
-            setSupportActionBar(this)
-
-            setNavigationIcon(R.mipmap.icon_back)
-            setNavigationOnClickListener {
-                onBackPressed()
-            }
-        }
+//        with(mUI.mToolbar){
+//            setSupportActionBar(this)
+//
+//            setNavigationIcon(R.mipmap.icon_back)
+//            setNavigationOnClickListener {
+//                onBackPressed()
+//            }
+//        }
 
     }
 }
@@ -49,10 +51,10 @@ class UI : AnkoComponent<AppCompatActivity> {
             coordinatorLayout {
                 fitsSystemWindows = true
                 themedAppBarLayout(R.style.ThemeOverlay_AppCompat_Dark_ActionBar) {
-                    id = R.id.main_appbar
+//                    id = R.id.main_appbar
                     fitsSystemWindows = true
                     collapsingToolbarLayout {
-                        id = R.id.main_collapsing
+//                        id = R.id.main_collapsing
                         //app:contentScrim = ?attr/colorPrimary //not support attribute
                         // 显示toolbar的时候背景颜色
                         setContentScrimColor(resources.getColor(R.color.colorPrimary))
@@ -60,11 +62,11 @@ class UI : AnkoComponent<AppCompatActivity> {
 //                        expandedTitleGravity = Gravity.CENTER
                         //app:toolbarId = @id/main.toolbar //not support attribute
                         //app:title = @string/app_name //not support attribute
-                        expandedTitleMarginStart = dip(18)
-                        // 设置扩大字体的样式
-                        setExpandedTitleTextAppearance(R.style.expanded_title)
+//                        expandedTitleMarginStart = dip(18)
+//                        // 设置扩大字体的样式
+//                        setExpandedTitleTextAppearance(R.style.expanded_title)
 
-                        title = "Hello CoordinatorLayout"
+//                        title = "Hello CoordinatorLayout"
                         imageView {
                             id = R.id.main_backdrop
                             scaleType = ImageView.ScaleType.CENTER_CROP
@@ -78,6 +80,28 @@ class UI : AnkoComponent<AppCompatActivity> {
                             id = R.id.main_toolbar
                             //app:layout_collapseMode = pin //not support attribute
                             popupTheme = R.style.ThemeOverlay_AppCompat_Light
+
+                            textView {
+                                text = "指示器"
+                                textSize = 16.toFloat()
+                                textColor = Color.WHITE
+                            }.lparams(wrapContent, wrapContent) {
+                                gravity = Gravity.CENTER
+                            }
+
+                           imageButton {
+                                scaleType = ImageView.ScaleType.CENTER
+                                maxWidth = dip(48)
+                                maxHeight = dip(48)
+                                padding = dip(8)
+                                backgroundColor = Color.TRANSPARENT
+                                imageResource = R.mipmap.icon_back
+                                imageTintList = ColorStateList.valueOf(Color.WHITE)
+                            }.lparams(wrapContent, wrapContent) {
+                                gravity = Gravity.CENTER or Gravity.LEFT
+                                marginStart = dip(12)
+                            }
+
                         }.lparams(width = matchParent, height = dimenAttr(R.attr.actionBarSize)) {
                             collapseMode = CollapsingToolbarLayout.LayoutParams.COLLAPSE_MODE_PIN
                         }
