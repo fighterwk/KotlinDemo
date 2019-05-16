@@ -2,6 +2,8 @@ package com.kyle.demo
 
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewManager
+import com.kyle.demo.view.InputFrameLayout
 import net.lucode.hackware.magicindicator.MagicIndicator
 import org.jetbrains.anko.custom.ankoView
 
@@ -22,4 +24,12 @@ inline fun View.gone(){
 
 inline fun View.visible(){
     visibility = View.VISIBLE
+}
+
+inline fun ViewManager.inputFrameLayout(init:InputFrameLayout.()->Unit):InputFrameLayout{
+    return ankoView({
+        InputFrameLayout(it)
+    }, 0){
+        init()
+    }
 }

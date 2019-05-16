@@ -74,7 +74,6 @@ class MagicIndicator2UI : AnkoComponent<AppCompatActivity> {
                         // 显示toolbar的时候背景颜色
                         setContentScrimColor(colorAttr(R.attr.colorPrimary))
                         imageView {
-                            id = R.id.main_backdrop
                             scaleType = ImageView.ScaleType.CENTER_CROP
                             imageResource = R.drawable.img_mv_0
                             //app:layout_collapseMode = parallax //not support attribute
@@ -123,7 +122,8 @@ class MagicIndicator2UI : AnkoComponent<AppCompatActivity> {
                         backgroundColor = Color.parseColor("#fafafa")
                     }.lparams(matchParent, dip(50))
 
-                }.lparams(width = matchParent, height = wrapContent)
+                }
+                    .lparams(width = matchParent, height = wrapContent)
 
 
                 mViewPager = viewPager {

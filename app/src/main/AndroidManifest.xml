@@ -22,6 +22,10 @@
         <activity android:name=".MagicIndicatorDemo2"
                 android:exported="true"
                 />
+        <activity android:name=".InputFrameLayoutDemo"
+                android:exported="true"
+                  android:windowSoftInputMode="adjustResize"
+                />
     </application>
 
 </manifest>
